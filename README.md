@@ -1,4 +1,4 @@
-<img width="1852" height="896" alt="image" src="https://github.com/user-attachments/assets/b8532303-6a99-41ce-b66f-5801017e9b6e" /># Project 07 — AWS Infrastructure Monitoring
+
 
 ## 1. Project Overview
 
@@ -616,7 +616,8 @@ sudo systemctl status postgresql
 ---
 
 ## 17. Dashboard Result
-
+<img width="543" height="82" alt="image" src="https://github.com/user-attachments/assets/aee5249b-8c0f-40fd-b9b6-cd2177368c1a" />
+터미널에서 실제 연결 상태를 증명합니다.
 ### Zabbix
 
 ```text
