@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-AWS 환경에서 **Zabbix + Amazon CloudWatch + Grafana**를 연계하여 서버 및 AWS 인프라 모니터링 환경을 구축합니다.
+AWS 환경에서 **Zabbix + AWS CloudWatch + Grafana**를 연계하여 서버 및 AWS 인프라 모니터링 환경을 구축합니다.
 
 - Zabbix를 이용한 Linux 서버 리소스 모니터링
 - Amazon CloudWatch를 이용한 AWS EC2 모니터링
@@ -16,66 +16,42 @@ AWS 환경에서 **Zabbix + Amazon CloudWatch + Grafana**를 연계하여 서버
 ## 2. Project Architecture
 
 ```text
-                         Internet
-                            │
-                            ▼
-                    ┌─────────────────┐
-                    │ Internet Gateway│
-                    └────────┬────────┘
-                             │
-                    ┌────────▼────────┐
-                    │  Public Subnet  │
-                    │  10.0.1.0/24    │
-                    │   us-east-2a    │
-                    └────────┬────────┘
-                             │
-                ┌────────────▼────────────┐
-                │ project07-zabbix-server │
-                │ Ubuntu 24.04 LTS        │
-                │ t3.small                │
-                │                         │
-                │ Zabbix Server           │
-                │ PostgreSQL              │
-                │ Nginx                   │
-                │ Grafana                 │
-                └────────────┬────────────┘
-                             │
-                      Zabbix Agent
-                       TCP 10050
-                             │
-                    ┌────────▼────────┐
-                    │ Private Subnet  │
-                    │  10.0.2.0/24    │
-                    │   us-east-2a    │
-                    └────────┬────────┘
-                             │
-                ┌────────────▼──────────────┐
-                │ project07-monitoring-target│
-                │ Ubuntu 24.04 LTS           │
-                │ t3.micro                   │
-                │                            │
-                │ Zabbix Agent               │
-                └────────────────────────────┘
+                         AWS
+                          │
+                  ┌───────▼───────┐
+                  │      VPC      │
+                  │ 10.0.0.0/16   │
+                  └───────┬───────┘
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+     Public Subnet              Private Subnet
+      10.0.1.0/24                10.0.2.0/24
+             │                         │
+             ▼                         ▼
+   ┌──────────────────┐      ┌──────────────────┐
+   │ Zabbix Server    │      │ Monitoring Target│
+   │ Ubuntu 24.04     │      │ Ubuntu 24.04     │
+   │                  │      │                  │
+   │ Zabbix           │      │ Zabbix Agent     │
+   │ PostgreSQL       │◄─────│                  │
+   │ Nginx            │      └──────────────────┘
+   │ Grafana          │
+   └────────┬─────────┘
+            │
+            │
+      ┌─────┴─────┐
+      │           │
+      ▼           ▼
+   Zabbix      CloudWatch
+      │           │
+      └─────┬─────┘
+            ▼
+       ┌──────────┐
+       │ Grafana  │
+       │ Dashboard│
+       └──────────┘
 
-
-       AWS EC2 Metrics
-              │
-              ▼
-      ┌─────────────────┐
-      │ Amazon CloudWatch│
-      └────────┬────────┘
-               │
-               ▼
-      ┌─────────────────┐
-      │     Grafana     │
-      │ Unified Dashboard│
-      └────────┬────────┘
-               │
-               ▼
-      ┌─────────────────┐
-      │      Zabbix     │
-      │ Linux Monitoring│
-      └─────────────────┘
 ```
 
 ---
