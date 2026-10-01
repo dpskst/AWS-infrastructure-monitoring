@@ -484,6 +484,7 @@ System Uptime
 ```
 
 ### CloudWatch Monitoring
+<img width="1236" height="813" alt="image" src="https://github.com/user-attachments/assets/9a93ae5a-faca-4ed0-a260-f563d9344dc4" />
 
 AWS CloudWatch를 통해 EC2의 AWS Metric을 모니터링합니다.
 
