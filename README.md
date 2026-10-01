@@ -1,4 +1,4 @@
-# Project 07 — AWS Infrastructure Monitoring
+<img width="1852" height="896" alt="image" src="https://github.com/user-attachments/assets/b8532303-6a99-41ce-b66f-5801017e9b6e" /># Project 07 — AWS Infrastructure Monitoring
 
 ## 1. Project Overview
 
@@ -57,6 +57,7 @@ AWS 환경에서 **Zabbix + AWS CloudWatch + Grafana**를 연계하여 서버 �
 ---
 
 ## 3. Project Environment
+<img width="1149" height="270" alt="image" src="https://github.com/user-attachments/assets/0916dd08-ae31-4c58-8cce-019dca6ee91a" />
 
 ### AWS
 
@@ -108,6 +109,7 @@ AWS 환경에서 **Zabbix + AWS CloudWatch + Grafana**를 연계하여 서버 �
 ## 4. Network Configuration
 
 ### VPC
+<img width="1376" height="551" alt="image" src="https://github.com/user-attachments/assets/0c3ae90d-afa5-4a94-b04a-30f5acf4226b" />
 
 ```text
 VPC
@@ -151,7 +153,6 @@ Internet Gateway
 
 NAT Gateway는 Private Subnet의 인스턴스가 외부로 통신할 수 있도록 구성하였습니다.
 
-> 실습 종료 후에는 NAT Gateway를 삭제하여 불필요한 비용이 발생하지 않도록 합니다.
 
 ---
 
@@ -298,6 +299,7 @@ sudo systemctl enable zabbix-agent
 ---
 
 ## 8. Zabbix Agent Connectivity Test
+<img width="1537" height="137" alt="image" src="https://github.com/user-attachments/assets/93bf5998-0f63-49a0-a90e-db2beec267ca" />
 
 Zabbix Server에서 Monitoring Target의 Agent 상태를 확인합니다.
 
@@ -458,6 +460,9 @@ i-0eaa0f2f98ef14ae7
 
 ## 13. Monitoring Dashboard
 
+<img width="1821" height="849" alt="image" src="https://github.com/user-attachments/assets/61c38212-02ec-44c3-95db-f20402e8fec5" />
+
+
 Grafana Dashboard:
 
 ```text
@@ -465,6 +470,8 @@ Project 07 - AWS Infrastructure Monitoring
 ```
 
 ### Zabbix Monitoring
+
+<img width="1852" height="896" alt="image" src="https://github.com/user-attachments/assets/f491b04d-d9e2-46c5-8ea7-85e333d24a57" />
 
 Zabbix를 통해 Linux 서버의 주요 시스템 리소스를 모니터링합니다.
 
@@ -720,35 +727,14 @@ Dimension : InstanceId
 Period    : 300 seconds
 Time Range: Last 1 hour
 ```
+---
+
+
+
 
 ---
 
-## 19. Project Structure
-
-```text
-PROJECT-07/
-├── README.md
-├── docs/
-│   ├── architecture.md
-│   ├── aws-network.md
-│   ├── zabbix-installation.md
-│   ├── grafana-installation.md
-│   ├── cloudwatch.md
-│   └── troubleshooting.md
-├── screenshots/
-│   ├── aws-vpc.png
-│   ├── aws-subnet.png
-│   ├── zabbix-host.png
-│   ├── grafana-zabbix.png
-│   ├── grafana-cloudwatch.png
-│   └── grafana-dashboard.png
-└── scripts/
-    └── README.md
-```
-
----
-
-## 20. Key Technologies
+## 19. Key Technologies
 
 ```text
 AWS
@@ -773,85 +759,13 @@ Infrastructure
 ├── Nginx
 └── PostgreSQL
 ```
-
 ---
 
-## 21. Project Outcome
 
-본 프로젝트를 통해 AWS 환경에서 다음과 같은 Infrastructure Monitoring 환경을 구축하였습니다.
 
-- AWS VPC 기반 Public / Private Network 구성
-- Public Subnet에 Zabbix Server 구축
-- Private Subnet에 Monitoring Target 구축
-- Zabbix Agent 기반 Linux 서버 모니터링
-- AWS CloudWatch 기반 EC2 Metric 모니터링
-- Grafana와 Zabbix 연동
-- Grafana와 CloudWatch 연동
-- Zabbix + CloudWatch 통합 Dashboard 구성
-- Security Group 기반 접근 제어
-- AWS Systems Manager Session Manager 구성
-- Monitoring 장애 상황에 대한 Troubleshooting 수행
-
----
-
-## 22. Cleanup
-
-AWS 실습 종료 후 비용 발생을 방지하기 위해 생성한 리소스를 확인합니다.
-
-삭제 대상 예시:
-
-```text
-EC2
-NAT Gateway
-Elastic IP
-Load Balancer (사용 시)
-EBS Volume
-VPC
-Subnet
-Route Table
-Internet Gateway
-Security Group
-IAM Role (불필요한 경우)
-```
-
-특히 **NAT Gateway는 실행 시간에 따라 비용이 발생할 수 있으므로 실습 종료 후 반드시 확인합니다.**
-
----
-
-## 23. Next Improvement
-
-향후 다음 기능을 추가하여 Monitoring / DevOps 프로젝트로 확장할 수 있습니다.
-
-```text
-1. Zabbix Alert / Trigger 구성
-2. Slack / Email Notification
-3. Python + Zabbix API 자동화
-4. CloudWatch Alarm 연계
-5. Grafana Alerting
-6. Terraform을 이용한 AWS Infrastructure 코드화
-7. Ansible을 이용한 Zabbix Agent 자동 설치
-8. AWS Infrastructure as Code
 ```
 
 ---
 
-## 24. Skills Demonstrated
 
-```text
-AWS Infrastructure
-Linux Server
-Zabbix
-CloudWatch
-Grafana
-PostgreSQL
-Nginx
-VPC
-Subnet
-Routing
-Security Group
-IAM
-Systems Manager
-Infrastructure Monitoring
-Troubleshooting
-```
 
